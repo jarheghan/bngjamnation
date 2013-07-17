@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="keywords" content="@Page.mKeywords" />
+        <meta name="description" content="@Page.mDescription" />
+        <title>Galleria Classic Theme</title>
+        <style>
+
+            /* Demo styles */
+            html,body{background:#222;margin:0;}
+            body{border-top:4px solid #000;}
+            .content{color:#777;font:12px/1.4 "helvetica neue",arial,sans-serif;width:1220px;margin:20px auto;}
+            h1{font-size:12px;font-weight:normal;color:#ddd;margin:0;}
+            p{margin:0 0 20px}
+            a {color:#22BCB9;text-decoration:none;}
+            .cred{margin-top:20px;font-size:11px;}
+
+            /* This rule is read by Galleria to define the gallery height: */
+            #galleria{height:620px}
+            
+                        .horizontal-nav {
+                background: #efefef;
+                border-radius: 6px;
+            }
+            .horizontal-nav ul {
+                background: #128F9A;
+                float: left;
+                text-align: center;
+                border-radius: 6px;
+                border: 1px solid #0e7079;
+            }
+            .horizontal-nav ul li {
+                float: left;
+                border-left: 1px solid #0e7079;
+            }
+            .horizontal-nav ul li:first-child {
+                border-left: 0 none;
+            }
+            .horizontal-nav ul li a {
+                display: block;
+                padding: 10px 20px;
+                color: #fff;
+                border-top: 1px solid rgba(255,255,255, 0.25);
+                border-left: 1px solid rgba(255,255,255, 0.25);
+            }
+            .horizontal-nav ul li:first-child a {
+                border-left: 0 none;
+            }
+            .horizontal-nav ul li a:hover {
+                background: #12808a;
+            }
+            .horizontal-nav ul li:first-child a {
+                border-top-left-radius: 6px;
+                border-bottom-left-radius: 6px;
+            }
+            .horizontal-nav ul li:last-child a {
+                border-top-right-radius: 6px;
+                border-bottom-right-radius: 6px;
+            }
+
+        </style>
+
+        <!-- load jQuery -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
+        <!-- load Galleria -->
+        <script src="@Href("~/Scripts/galleria-1.2.9.min.js")"></script>
+        @RenderSection("head")
+    </head>
+<body>
+    <div class="content">
+        	@RenderBody()
+    </div>
+
+    <script>
+    
+        $(document).ready(function() {
+    // Call horizontalNav on the navigations wrapping element
+    $('.full-width').horizontalNav({});
+    });
+    // Load the classic theme
+    Galleria.loadTheme('/Scripts/themes/classic/galleria.classic.min.js');
+
+    // Initialize Galleria
+    Galleria.run('#galleria');
+
+    </script>
+    </body>
+</html>
